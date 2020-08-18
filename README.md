@@ -1,2 +1,2 @@
 # prahari
-DL based REST backend | JS / Jquery fetch
+DL based REST backend | JS / Jquery fetch | CORS
