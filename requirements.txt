@@ -11,4 +11,8 @@ datetime
 bs4
 requests
 lxml
-
+flask_sqlalchemy
+flask_login
+tensorflow==1.15
+tflearn
+nltk

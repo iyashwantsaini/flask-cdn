@@ -1,0 +1,58 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Whats up","Hey"],
+         "responses": ["Hello! How may I help you?",  "Hi, how can I help?"],
+         "context_set": ""
+        },
+        {"tag": "goodbye",
+         "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day", "bye"],
+         "responses": ["See you soon!", "Talk to you later", "Goodbye!", "Would love to see you again"],
+         "context_set": ""
+        },
+        {"tag": "thankyou",
+         "patterns": ["thankyou", "thanx", "really helpful, thanks!", "great! thanks"],
+         "responses": ["Welcome!", "My Pleasure", "No problem", "Glad that I was useful", "Pleasure is all mine!"],
+         "context_set": ""
+        },
+        {"tag": "collegeOpen",
+         "patterns": ["when will college reopen?", "will the college open this year?", "when will college restart?"],
+         "responses": [ "Online Classes has already been started from 20th of July on Thapar LMS education platform <br> A mail was sent to all the students mentioning their credentials for logging in. <br> For more details you can check out at : <a href='https://murphy-lms.thapar.edu' style='color: #FFFFFF'> <u> https://murphy-lms.thapar.edu </u> </a> "],
+         "context_set": ""
+        },
+        {"tag": "jobs",
+         "patterns": ["how were the placements this year?", "Did students get jobs?","can u tell me about jobs ?","can u tell me about placements ?"],
+         "responses": ["Previous Placement Sessions of Thapar University has been outstanding <br> The higest package offered was 43 lakhs <br> Some of our past recuirters include : <br>Amazon, Deloitte, IBM, Microsoft, Maruti Suzuki ,JP Morgan ,Samsung , Zomato , Wipro, Reliance <br> and the list is long......<br> For more details you can check out at : <a href='http://www.thapar.edu/placements' style='color: #FFFFFF'> <u> http://www.thapar.edu/placements </u> </a>"],
+         "context_set": ""
+        },
+        {"tag": "admissionCriteria",
+         "patterns": ["how will the students be admitted this year?", "admission process for this year?", "admissions this year?","can u tell me about admissions"],
+         "responses": ["Students will be enrolled on the bases of their 12th BOARD result and it is desirable if the students appeared in JEE held in January "],
+         "context_set": ""
+        },
+        {"tag": "fees",
+         "patterns": ["will the fees be reduced", "will there be fee reduction amid COVID 19", "fees?","tell me about fees","can u tell me about fees?"],
+         "responses": ["Due to COVID 19, great care has been taken for every student and a provision of fee payment in installments is there.<br> However, you can apply for scholarships.To know more about the eligibility criteria, terms and conditions<br>Check the site for eligibility criteria and much more <a href='http://thapar.edu/admissions/pages/scholarships' style='color: #FFFFFF'> <u> http://thapar.edu/admissions/pages/scholarships </u> </a> "],
+         "context_set": ""
+       },
+       {"tag": "scholarship",
+         "patterns": ["what are the scholarships", "are there any scholarships?", "scholarships","tell me about scholarships","can u tell me about schlolarships"],
+         "responses": ["Thapar Institute of Engineering & Technology offers scholarships to the deserving.<br>You can apply for scholarships.To know more about the eligibility criteria, terms and conditions<br>Check the site for eligibility criteria and much more <a href='http://thapar.edu/admissions/pages/scholarships' style='color: #FFFFFF'> <u> http://thapar.edu/admissions/pages/scholarships </u> </a> "],
+         "context_set": ""
+       },
+       {"tag": "labs",
+        "patterns": ["how will the labs be conducted?", "how will practical knowledge of tha labs be imparted","tell how labs will be conducted","can u tell me about labs ?","labs"],
+        "responses": ["Labs will be taken online and you will be notified with a proper schedule and will be conducted online through Thapar LMS Platform "],
+        "context_set": ""
+       },
+       {"tag": "marks",
+        "patterns": ["how will marks be given in the new sem", "how will the exams be conducted in this sem?","marks"],
+        "responses": ["Regular online tests will be conducted after every lecture and marks will be added accordingly"],
+        "context_set": ""
+       },
+       {"tag": "unknown",
+        "patterns": [" "],
+        "responses": ["For further details you can chat with us here:..."],
+        "context_set": ""
+       }
+   ]
+}

@@ -1,6 +1,17 @@
+import tensorflow
+import numpy as np
+import os
+import pickle
+import random
+import tflearn
+from nltk.stem.lancaster import LancasterStemmer
+import nltk
+import sqlite3
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 import langdetect
 from langdetect import detect
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, send_file, jsonify
 from flask_cors import CORS, cross_origin
 from bs4 import BeautifulSoup
 import requests
@@ -9,6 +20,11 @@ import pandas as pd
 import numpy
 from googletrans import Translator
 translator = Translator()
+
+
+stemmer = LancasterStemmer()
+nltk.download('punkt')
+np.random.seed(1337)
 
 
 def getdata(url):
@@ -20,6 +36,40 @@ def getdata(url):
 
 app = Flask(__name__)
 CORS(app)
+
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite3'
+db = SQLAlchemy(app)
+
+
+class User(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    #name = db.Column(db.String(50))
+    message = db.Column(db.String(50))
+    date_created = db.Column(db.DateTime, default=datetime.now)
+
+
+class Mail(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    #name = db.Column(db.String(50))
+    mail = db.Column(db.String(50))
+    date_created = db.Column(db.DateTime, default=datetime.now)
+
+# db.create_all()
+
+
+def bag_of_words(s, words):
+    bag = [0 for _ in range(len(words))]
+
+    s_words = nltk.word_tokenize(s)
+    s_words = [stemmer.stem(word.lower()) for word in s_words]
+
+    for se in s_words:
+        for i, w in enumerate(words):
+            if w == se:
+                bag[i] = 1
+
+    return numpy.array(bag)
 
 
 @app.after_request
@@ -300,6 +350,211 @@ def trackstate():
         send = str('राज्य:'+msg1+'<br>'+'वे केस जिनकी पुष्टि हो चुकी है : '+confirm1 +
                    '<br>'+'मरीजों को ठीक किया गया : '+cured1+'<br>'+'कुल मौतें : '+death1)
         return jsonify({'data': send})
+
+
+@app.route('/signin')
+def signin():
+    return render_template('login.html')
+
+
+@app.route('/login', methods=['GET', 'POST'])
+@cross_origin()
+def login():
+    username = request.form['username']
+    password = request.form['password']
+    if username == 'thapar' and password == 'thapar':
+        cnx = sqlite3.connect('db.sqlite3')
+        df = pd.read_sql_query("SELECT * FROM mail", cnx)
+        # email database in form of dataframe
+        #df1 = pd.read_sql_query("SELECT * FROM user", cnx)
+        return render_template('table.html', tables=[df.to_html(render_links=True, classes=['table table-striped table-bordered table-hover table-responsive text-white'])])
+
+    elif username == 'chatbot' and password == 'myways':
+        cnx = sqlite3.connect('db.sqlite3')
+        df = pd.read_sql_query("SELECT * FROM mail", cnx)
+        # email database in form of dataframe
+        #df1 = pd.read_sql_query("SELECT * FROM user", cnx)
+        return render_template('table.html', tables=[df.to_html(render_links=True, classes=['table table-striped table-bordered table-hover table-responsive text-white'])])
+
+    else:
+        return render_template('login.html', warning='Please enter correct username and password')
+
+
+@app.route('/email', methods=['GET', 'POST'])
+@cross_origin()
+def email():
+    content = request.json
+    msg = content['text']
+    msg = msg.lower()
+    print('mail')
+    user = Mail(mail=msg)
+    db.session.add(user)
+    db.session.commit()
+    new = msg
+    return jsonify({'data': new})
+
+
+@app.route('/email_database', methods=['GET', 'POST'])
+# @login_required
+def email_database():
+    cnx = sqlite3.connect('db.sqlite3')
+    df1 = pd.read_sql_query("SELECT * FROM mail", cnx)
+    return render_template('table.html', tables=[df1.to_html(render_links=True, classes=['table table-striped table-bordered table-hover table-responsive text-white'])])
+
+
+@app.route('/chat_database', methods=['GET', 'POST'])
+# @login_required
+def chat_database():
+    cnx = sqlite3.connect('db.sqlite3')
+    df = pd.read_sql_query("SELECT * FROM user", cnx)
+    return render_template('table.html', tables=[df.to_html(render_links=True, classes=['table table-striped table-bordered table-hover table-responsive text-white'])])
+
+
+@app.route('/chat', methods=["POST"])
+@cross_origin()
+def chat():
+    with open("detail.json") as file:
+        data = json.load(file)
+    content = request.json
+    msg = content['text']
+    print('ok')
+    msg = msg.lower()
+    user = User(message=msg)
+    db.session.add(user)
+    db.session.commit()
+    if msg == 'placement':
+        print('hello')
+        new = data['placement']
+        return jsonify({'data': new})
+    elif msg == 'campus':
+        new = data['campus life']
+        return jsonify({'data': new})
+    elif msg == 'hostel':
+        new = data['hostel']
+        return jsonify({'data': new})
+    elif msg == 'webkiosk':
+        new = data['webkiosk']
+        return jsonify({'data': new})
+    elif msg == 'reach':
+        new = data['reach']
+        return jsonify({'data': new})
+    elif msg == 'TEQIP':
+        new = data['TEQIP']
+        return jsonify({'data': new})
+    elif msg == 'timetable':
+        new = data['timetable']
+        return jsonify({'data': new})
+    elif msg == 'library':
+        new = data['library']
+        return jsonify({'data': new})
+    elif msg == 'contact':
+        new = data['contact']
+        return jsonify({'data': new})
+    elif msg == 'notification':
+        new = data['notification']
+        return jsonify({'data': new})
+    elif msg == 'extra':
+        new = data['extra']
+        return jsonify({'data': new})
+    elif msg == 'scholarship':
+        new = data['scholarships']
+        return jsonify({'data': new})
+    elif msg == 'admission':
+        new = data['admission']
+        return jsonify({'data': new})
+
+    else:
+        print('hrllo')
+        with open("intents.json") as file:
+            data = json.load(file)
+
+        try:
+            with open("data.pickle", "rb") as f:
+                words, labels, training, output = pickle.load(f)
+        except:
+            words = []  # list of all word in pattern
+            labels = []  # tag with that pattern
+            docs_x = []  # patterns ke words
+            docs_y = []
+
+            for intent in data["intents"]:
+                for pattern in intent["patterns"]:
+                    wrds = nltk.word_tokenize(pattern)
+                    words.extend(wrds)
+                    docs_x.append(wrds)
+                    docs_y.append(intent["tag"])
+
+                if intent["tag"] not in labels:
+                    labels.append(intent["tag"])
+
+            words = [stemmer.stem(w.lower()) for w in words if w != "?"]
+            words = sorted(list(set(words)))
+
+            labels = sorted(labels)
+
+            training = []
+            output = []
+
+            out_empty = [0 for _ in range(len(labels))]
+
+            for x, doc in enumerate(docs_x):
+                bag = []
+
+                wrds = [stemmer.stem(w.lower()) for w in doc]
+
+                for w in words:
+                    if w in wrds:
+                        bag.append(1)
+                    else:
+                        bag.append(0)
+
+                output_row = out_empty[:]
+                output_row[labels.index(docs_y[x])] = 1
+
+                training.append(bag)
+                output.append(output_row)
+
+            training = numpy.array(training)
+            output = numpy.array(output)
+            with open("data.pickle", "wb") as f:
+                pickle.dump((words, labels, training, output), f)
+
+        tensorflow.reset_default_graph()
+
+        net = tflearn.input_data(shape=[None, len(training[0])])
+        net = tflearn.fully_connected(net, 16)
+        net = tflearn.fully_connected(net, 16)
+        #net = tflearn.fully_connected(net, 8)
+        net = tflearn.fully_connected(
+            net, len(output[0]), activation="softmax")
+        net = tflearn.regression(net)
+
+        model = tflearn.DNN(net)
+        # tf.compat.v1.reset_default_graph()
+        # define the keras model
+        '''model = Sequential() 
+        model.add(Dense(8, activation='relu', input_shape=(len(training[0]))))  
+        model.add(Dense(8, activation="relu")) 
+        model.add(Dense(len(output[0]), activation="softmax"))  
+        model.compile(loss='mean_squared_error', optimizer='adam', metrics=['accuracy']) 
+        #history = model.fit(training,output, epochs=100, batch_size=20) '''
+        MODEL_NAME = 'model.tflearn'
+        if os.path.exists(MODEL_NAME + ".meta"):
+            model.load(MODEL_NAME)
+        else:
+            model.fit(training, output, n_epoch=1200,
+                      batch_size=8, show_metric=True)
+            model.save(MODEL_NAME)
+
+        results = model.predict([bag_of_words(msg, words)])
+        results_index = numpy.argmax(results)
+        tag = labels[results_index]
+
+        for tg in data["intents"]:
+            if tg['tag'] == tag:
+                responses = tg['responses']
+
+    return jsonify({'data': random.choice(responses)})
 
 
 if __name__ == '__main__':
