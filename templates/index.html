@@ -1,87 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PrahariBot</title>
-  <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
-  <link
-    href="https://fonts.googleapis.com/icon?family=Material+Icons"
-    rel="stylesheet"
-  />
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-  />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
-  <!-- <link href="https://unpkg.com/aarogyabot@3.0.0/dist/index.css" rel="stylesheet" type="text/css" /> -->
-  <link rel="stylesheet" href="static/css/index.css">
-</head>
-<body>
-  <div class="container" style="font-family:Helvetica; font-weight: 500;">
-    <div class="row">
-      <div id="Smallchat">
-        <div class="Layout Layout-open Layout-expand Layout-right"
-          style="background-color: darkcyan;color: rgb(255, 255, 255);opacity: 5;border-radius: 10px;">
-          <div class="Messenger_messenger">
-            <div class="Messenger_header" style=" color: rgb(255, 255, 255); background-color: darkcyan;">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PrahariBot</title>
 
-              <div id="dd" class="wrapper-dropdown-3" tabindex="1">
-                <span>Language</span>
-                <ul class="dropdown">
-                  <li>
-                    <a href="#" name="lang" id="en" value="en">English</a>
-                  </li>
-                  <li>
-                    <a href="#" name="lang" id="hi" value="hi">हिन्दी</a>
-                  </li>
-                  <li>
-                    <a href="#" name="lang" id="pb" value="pb">ਪੰਜਾਬੀ</a>
-                  </li>
-                  <li>
-                    <a href="#" name="lang" id="ma" value="ma">मराठी</a>
-                  </li>
-                </ul>
-              </div>
-              <span class="chat_close_icon" style=" color:white;margin-right: 5px;float:right;margin-top: 5px;">
-                <i class="material-icons" aria-hidden="true">close</i>
-              </span>
-            </div>
-
-            <div class="Messenger_content" id="chatcontainer">
-              <div class="Messages chats" id="chats">
-                <div class="clearfix"></div>
-              </div>
-              <div class="Input Input-blank">
-                <form>
-                  <input type="text" id="mymessage" class="Input_field" placeholder="Ask me anything!"
-                    style="height: 20px;"></input>
-                  <button id="sendbutton" class="Input_button Input_button-send" type="submit">
-                    <div class="Icon" style="width: 18px; height: 18px;">
-                      <svg width="57px" height="54px" viewBox="1496 193 57 54" version="1.1"
-                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        style="width: 18px; height: 18px;">
-                        <g id="Group-9-Copy-3" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd"
-                          transform="translate(1523.000000, 220.000000) rotate(-270.000000) translate(-1523.000000, -220.000000) translate(1499.000000, 193.000000)">
-                          <path
-                            d="M5.42994667,44.5306122 L16.5955554,44.5306122 L21.049938,20.423658 C21.6518463,17.1661523 26.3121212,17.1441362 26.9447801,20.3958097 L31.6405465,44.5306122 L42.5313185,44.5306122 L23.9806326,7.0871633 L5.42994667,44.5306122 Z M22.0420732,48.0757124 C21.779222,49.4982538 20.5386331,50.5306122 19.0920112,50.5306122 L1.59009899,50.5306122 C-1.20169244,50.5306122 -2.87079654,47.7697069 -1.64625638,45.2980459 L20.8461928,-0.101616237 C22.1967178,-2.8275701 25.7710778,-2.81438868 27.1150723,-0.101616237 L49.6075215,45.2980459 C50.8414042,47.7885641 49.1422456,50.5306122 46.3613062,50.5306122 L29.1679835,50.5306122 C27.7320366,50.5306122 26.4974445,49.5130766 26.2232033,48.1035608 L24.0760553,37.0678766 L22.0420732,48.0757124 Z"
-                            id="sendicon" fill="#96AAB4" fill-rule="nonzero"></path>
-                        </g>
-                      </svg>
-                    </div>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-        <!-- BOT ICON -->
-        <img class="iconic chat_on" src="static/img/prahari.png">
-    </div>
-    </div>
-  </div>
-  <!-- <script src="https://unpkg.com/aarogyabot@3.0.0/dist/index.js"></script> -->
-  <script src="static/js/index.js"></script>
-</body>
-
+    <!-- scripts in head -->
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.0/howler.min.js"></script>
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <!--  -->
+  </head>
+  <body>
+    <!-- mainjs -->
+    <script src="../static/js/index.js"></script>
+    <!--  -->
+  </body>
 </html>

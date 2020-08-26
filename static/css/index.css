@@ -22,21 +22,34 @@
 .chat_on {
   position: fixed;
   z-index: 1000;
-  width: 55px;
-  height: 55px;
-  right: 7px;
-  bottom: 55px;
+  width: 60px;
+  height: 60px;
+  right: 15px;
+  bottom: 60px;
   border-radius: 50%;
   text-align: center;
   padding: 9px;
   cursor: pointer;
   display: block;
   font-size: 30px;
+  background-color: rgba(255,255,255,.85);
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 .chat_on_icon {
   color: #fff;
   font-size: 25px;
   text-align: center;
+  background-color: rgba(255,255,255,.85);
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  border-radius: .25rem;
 }
 #Smallchat .Layout {
   pointer-events: auto;
@@ -186,7 +199,8 @@
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
-  padding-right: 70px;
+  padding-left: 10px;
+  padding-right: 40px;
   height: 40px;
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
@@ -284,8 +298,8 @@
   -webkit-flex-shrink: 0;
   -ms-flex-negative: 0;
   flex-shrink: 0;
-  padding-top: 8px;
-  padding-bottom: 8px;
+  padding-top: 6px;
+  padding-bottom: 6px;
   color: #96aab4;
   background-color: #fff;
   border-top: 1px solid #e6ebea;
@@ -301,8 +315,8 @@
   padding: 0;
   padding-left: 20px;
   padding-right: 75px;
-  padding-top: 8px;
-  padding-bottom: 6px;
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: transparent;
   font-size: 16px;
   line-height: 20px;
@@ -323,7 +337,7 @@
   cursor: pointer;
 }
 #Smallchat .Input_button-send {
-  top: 10px;
+  top: 5px;
   right: 15px;
 }
 #Smallchat .Input-emoji .Input_button-emoji .Icon,
@@ -359,7 +373,7 @@
   margin-top: 1px;
   animation: animateElement linear 0.4s;
   /* background: #4285F4; */
-  background-color: teal;
+  background-color: darkorange;
   box-shadow: 2px 5px 5px 1px #efeef5;
   margin-left: 0.5em;
   padding: 0.7em 0.7em;
@@ -397,7 +411,7 @@
 .prahaributton {
   /* text-transform: uppercase; */
   outline: 0;
-  background: darkcyan;
+  background: darkorange;
   width: 95%;
   border: 0;
   padding-top: 10px;
@@ -427,8 +441,6 @@
   padding-bottom: 0.5px;
   padding-top: 0.5px;
 }
-
-/* typing_effect */
 
 .typingIndicatorContainer {
   display: flex;
@@ -482,23 +494,24 @@
   }
 }
 
+
 /* dropdown */
 
 .wrapper-dropdown-3 {
   /* Size and position */
   position: relative;
   width: 200px;
-  margin: 0 auto;
-  padding: 10px;
+  margin: 0 0;
+  padding: 5px;
 
   /* Styles */
   background: #fff;
   border-radius: 7px;
   /* border: 1px solid rgba(0, 0, 0, 0.15); */
-  box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1);
+  /* box-shadow: 0 1px 1px rgba(50, 50, 50, 0.1); */
   cursor: pointer;
   outline: none;
-  background-color: darkcyan;
+  background-color: darkorange;
 
   /* Font settings */
   font-weight: bold;
@@ -641,4 +654,38 @@
 .no-opacity .wrapper-dropdown-3.active .dropdown,
 .no-pointerevents .wrapper-dropdown-3.active .dropdown {
   display: block;
+}
+
+.toast{
+  position: fixed;
+  z-index: 10;
+  right: 30px;
+  bottom: 137px;
+  opacity: 1;
+}
+
+.toast {
+  max-width: 350px;
+  overflow: hidden;
+  font-size: .875rem;
+  background-color: rgba(255,255,255,.85);
+  background-clip: padding-box;
+  border: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0,0,0,.1);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  opacity: 1;
+  border-radius: .25rem;
+}
+
+.toast-header {
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: .25rem .75rem;
+  color: #6c757d;
+  background-color: rgba(255,255,255,.85);
+  background-clip: padding-box;
+  border-bottom: 1px solid rgba(0,0,0,.05);
 }

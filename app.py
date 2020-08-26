@@ -1,3 +1,4 @@
+from flask import Flask, render_template, request, jsonify
 import tensorflow
 import numpy as np
 import os
@@ -33,6 +34,8 @@ def getdata(url):
     }
     return requests.get(url, headers=headers).text
 
+city_list = ["andhra pradesh", "arunachal pradesh ", "assam", "bihar", "chhattisgarh", "goa", "gujarat", "haryana", "himachal pradesh", "jammu and kashmir", "jharkhand", "karnataka", "kerala", "madhya pradesh", "maharashtra", "manipur", "meghalaya", "mizoram", "nagaland",
+             "odisha", "punjab", "rajasthan", "sikkim", "tamil nadu", "telangana", "tripura", "uttar pradesh", "uttarakhand", "west bengal", "andaman and nicobar Islands", "chandigarh", "dadra and nagar haveli", "daman and diu", "lakshadweep", "delhi", "puducherry", "rajasthan", "jharkhand"]
 
 app = Flask(__name__)
 CORS(app)
@@ -464,7 +467,7 @@ def chat():
         return jsonify({'data': new})
 
     else:
-        print('hrllo')
+        print('hello')
         with open("intents.json") as file:
             data = json.load(file)
 
