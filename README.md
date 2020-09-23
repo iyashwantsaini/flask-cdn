@@ -10,7 +10,7 @@
 <h4 align="center">Deployed on <a href="http://thapar.edu">thapar.edu</a></h4>
 <br />
 
-![screens](./static/screens.png)
+![screens](https://raw.githubusercontent.com/meyash/thapar_bot/master/static/img/screens.png?token=AFBER72TRSUQKZN3ILFYXCK7OSJEC)
 
 <br />
 
