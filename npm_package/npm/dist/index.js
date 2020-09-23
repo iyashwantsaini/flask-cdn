@@ -217,6 +217,10 @@ $(document).ready(function () {
   $("#mymessage").on("keyup keypress", function (e) {
     var keyCode = e.keyCode || e.which;
     var text = $("#mymessage").val();
+    text = text.replace("<", " ");
+    text = text.replace(">", " ");
+    text = text.replace("alert", " ");
+    text = text.replace("script", " ");
     if (keyCode === 13) {
       if (text == "" || $.trim(text) == "") {
         e.preventDefault();
@@ -239,7 +243,11 @@ $(document).ready(function () {
     }
   });
   $("#sendbutton").on("click", function (e) {
-    var text = $("#mymessage").val();
+    var text = $("#mymessage").val();    
+    text = text.replace("<", " ");
+    text = text.replace(">", " ");
+    text = text.replace("alert", " ");
+    text = text.replace("script", " ");
     if (text == "" || $.trim(text) == "") {
       e.preventDefault();
       return false;
