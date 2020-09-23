@@ -1,2 +1,2 @@
-model_checkpoint_path: "/content/Heroku-deployment/model.tflearn"
-all_model_checkpoint_paths: "/content/Heroku-deployment/model.tflearn"
+model_checkpoint_path: "/content/model.tflearn"
+all_model_checkpoint_paths: "/content/model.tflearn"
