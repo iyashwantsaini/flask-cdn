@@ -52,8 +52,8 @@ Now we are all set, let’s connect to NPM and publish our package.
 
 ```
 npm login
-Username: meyash
-Password: i#tYD5*VzD;_riS
+Username: ######
+Password: ######
 Email: (this IS public) yashsn2127@gmail.com
 Logged in as meyash on https://registry.npmjs.org/.
 ```
@@ -69,6 +69,6 @@ For using specific version https://unpkg.com/package@version/:file<br>
 
 Example :
 ```
-<script src="https://unpkg.com/depbot@1.0.0/dist/index.js"></script>
-<link href="https://unpkg.com/depbot@1.0.0/dist/index.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/_name@latest/dist/index.js"></script>
+<link href="https://unpkg.com/_name@latest/dist/index.css" rel="stylesheet" type="text/css">
 ```
