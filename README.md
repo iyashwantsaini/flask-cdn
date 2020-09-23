@@ -10,6 +10,10 @@
 <h4 align="center">Deployed on <a href="http://thapar.edu">thapar.edu</a></h4>
 <br />
 
+![screens](./static/screens.png)
+
+<br />
+
 ## Technologies and Libraries
 
 - tensorflow
