@@ -33,7 +33,7 @@
 
 ## License
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE.md)
 
 By [Yashwant](https://github.com/meyash)
 
