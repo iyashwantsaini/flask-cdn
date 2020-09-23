@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href=""><img src="https://raw.githubusercontent.com/meyash/thapar_bot/master/static/img/logo.png" alt="logo" width="100"></a>
+  <a href="http://thapar.edu"><img src="https://raw.githubusercontent.com/meyash/thapar_bot/master/static/img/logo.png?token=AFBER77M5KPDYFZUATEXQJS7OSH6O" alt="logo" width="100"></a>
   <br>
     Thapar BOT
   <br>
