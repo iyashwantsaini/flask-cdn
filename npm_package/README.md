@@ -17,7 +17,7 @@ npm init
 ```
 {
   "name": "depbot",
-  "version": "1.0.0",
+  "version": "2.0.2",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -52,10 +52,11 @@ Now we are all set, let’s connect to NPM and publish our package.
 
 ```
 npm login
-Username: ######
-Password: ######
-Email: (this IS public) yashsn2127@gmail.com
-Logged in as meyash on https://registry.npmjs.org/.
+
+Username: ------
+Password: ------
+Email: (this IS public) -----
+Logged in as ------ on https://registry.npmjs.org/.
 ```
 ```
 npm publish
@@ -69,6 +70,6 @@ For using specific version https://unpkg.com/package@version/:file<br>
 
 Example :
 ```
-<script src="https://unpkg.com/_name@latest/dist/index.js"></script>
-<link href="https://unpkg.com/_name@latest/dist/index.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/bot@latest/dist/index.js"></script>
+<link href="https://unpkg.com/bot@latest/dist/index.css" rel="stylesheet" type="text/css">
 ```

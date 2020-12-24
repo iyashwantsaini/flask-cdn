@@ -9,6 +9,5 @@ flask_login
 flask_cors
 tensorflow==1.15
 tflearn
-profanity-check
 nltk
 flask_ngrok

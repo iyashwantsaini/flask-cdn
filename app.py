@@ -1,7 +1,6 @@
 # importing libraries
 import tensorflow
 from flask_ngrok import run_with_ngrok
-from profanity_check import predict
 import numpy as np
 from flask_cors import CORS, cross_origin
 import tflearn
@@ -29,9 +28,6 @@ run_with_ngrok(app)
 
 # handling Cross Origin Access
 CORS(app)
-
-# For hindi profanity check
-absurd_list = ['mc', 'bc', 'madarchod', 'bhenchod', 'sex', 'chutiya', 'gaandu']
 
 # storing in local DB (SQLAlchemy)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -128,106 +124,101 @@ def chat():
     content = request.json
     msg = content['text']
     msg = msg.lower()
-    check = predict([msg])
-    if check == 1 or msg in absurd_list:
-        send = 'Warning ⚠️ <br> Our Systems detected that you are using absurd language. Please avoid using it. Our system keeps a track of your unique credentials.'
-        return jsonify({'data': send})
+    if msg in ['placement', 'campus', 'hostel', 'reach', 'TEQIP', 'library', 'contact', 'scholarships', 'admission']:
+        inp = parents_msg(message=msg, owner=inputmail)
+        db.session.add(inp)
+        db.session.commit()
+        new = data[msg]
+        return jsonify({'data': new})
+    elif msg in ['webkiosk', 'timetable', 'notification', 'extra', 'accreditations', 'examination updates']:
+        inp = students_msg(message=msg)
+        db.session.add(inp)
+        db.session.commit()
+        new = data[msg]
+        return jsonify({'data': new})
     else:
-        if msg in ['placement', 'campus', 'hostel', 'reach', 'TEQIP', 'library', 'contact', 'scholarships', 'admission']:
-            inp = parents_msg(message=msg, owner=inputmail)
-            db.session.add(inp)
-            db.session.commit()
-            new = data[msg]
-            return jsonify({'data': new})
-        elif msg in ['webkiosk', 'timetable', 'notification', 'extra', 'accreditations', 'examination updates']:
-            inp = students_msg(message=msg)
-            db.session.add(inp)
-            db.session.commit()
-            new = data[msg]
-            return jsonify({'data': new})
+        inp = parents_msg(message=msg, owner=inputmail)
+        db.session.add(inp)
+        db.session.commit()
+        with open("./training_data/intents.json") as file:
+            data = json.load(file)
+        try:
+            with open("data.pickle", "rb") as f:
+                words, labels, training, output = pickle.load(f)
+        except:
+            words = []  # list of all word in pattern
+            labels = []  # tags with the pattern
+            docs_x = []  # words in pattern
+            docs_y = []
+            for intent in data["intents"]:
+                for pattern in intent["patterns"]:
+                    wrds = nltk.word_tokenize(pattern)
+                    words.extend(wrds)
+                    docs_x.append(wrds)
+                    docs_y.append(intent["tag"])
+                if intent["tag"] not in labels:
+                    labels.append(intent["tag"])
+
+            words = [stemmer.stem(w.lower()) for w in words if w != "?"]
+            words = sorted(list(set(words)))
+
+            labels = sorted(labels)
+
+            training = []
+            output = []
+
+            out_empty = [0 for _ in range(len(labels))]
+
+            for x, doc in enumerate(docs_x):
+                bag = []
+
+                wrds = [stemmer.stem(w.lower()) for w in doc]
+
+                for w in words:
+                    if w in wrds:
+                        bag.append(1)
+                    else:
+                        bag.append(0)
+
+                output_row = out_empty[:]
+                output_row[labels.index(docs_y[x])] = 1
+
+                training.append(bag)
+                output.append(output_row)
+
+            training = numpy.array(training)
+            output = numpy.array(output)
+            with open("data.pickle", "wb") as f:
+                pickle.dump((words, labels, training, output), f)
+
+        tensorflow.reset_default_graph()
+
+        net = tflearn.input_data(shape=[None, len(training[0])])
+        net = tflearn.fully_connected(net, 32)
+        net = tflearn.fully_connected(net, 16)
+        net = tflearn.fully_connected(
+            net, len(output[0]), activation="softmax")
+        net = tflearn.regression(net)
+
+        model = tflearn.DNN(net)
+
+        MODEL_NAME = 'model.tflearn'
+        if os.path.exists(MODEL_NAME + ".meta"):
+            model.load(MODEL_NAME)
         else:
-            inp = parents_msg(message=msg, owner=inputmail)
-            db.session.add(inp)
-            db.session.commit()
-            with open("./training_data/intents.json") as file:
-                data = json.load(file)
-            try:
-                with open("data.pickle", "rb") as f:
-                    words, labels, training, output = pickle.load(f)
-            except:
-                words = []  # list of all word in pattern
-                labels = []  # tags with the pattern
-                docs_x = []  # words in pattern
-                docs_y = []
-                for intent in data["intents"]:
-                    for pattern in intent["patterns"]:
-                        wrds = nltk.word_tokenize(pattern)
-                        words.extend(wrds)
-                        docs_x.append(wrds)
-                        docs_y.append(intent["tag"])
-                    if intent["tag"] not in labels:
-                        labels.append(intent["tag"])
+            model.fit(training, output, n_epoch=1200,
+                        batch_size=8, show_metric=True)
+            model.save(MODEL_NAME)
 
-                words = [stemmer.stem(w.lower()) for w in words if w != "?"]
-                words = sorted(list(set(words)))
+        results = model.predict([bag_of_words(msg, words)])
+        results_index = numpy.argmax(results)
+        tag = labels[results_index]
 
-                labels = sorted(labels)
+        for tg in data["intents"]:
+            if tg['tag'] == tag:
+                responses = tg['responses']
 
-                training = []
-                output = []
-
-                out_empty = [0 for _ in range(len(labels))]
-
-                for x, doc in enumerate(docs_x):
-                    bag = []
-
-                    wrds = [stemmer.stem(w.lower()) for w in doc]
-
-                    for w in words:
-                        if w in wrds:
-                            bag.append(1)
-                        else:
-                            bag.append(0)
-
-                    output_row = out_empty[:]
-                    output_row[labels.index(docs_y[x])] = 1
-
-                    training.append(bag)
-                    output.append(output_row)
-
-                training = numpy.array(training)
-                output = numpy.array(output)
-                with open("data.pickle", "wb") as f:
-                    pickle.dump((words, labels, training, output), f)
-
-            tensorflow.reset_default_graph()
-
-            net = tflearn.input_data(shape=[None, len(training[0])])
-            net = tflearn.fully_connected(net, 32)
-            net = tflearn.fully_connected(net, 16)
-            net = tflearn.fully_connected(
-                net, len(output[0]), activation="softmax")
-            net = tflearn.regression(net)
-
-            model = tflearn.DNN(net)
-
-            MODEL_NAME = 'model.tflearn'
-            if os.path.exists(MODEL_NAME + ".meta"):
-                model.load(MODEL_NAME)
-            else:
-                model.fit(training, output, n_epoch=1200,
-                          batch_size=8, show_metric=True)
-                model.save(MODEL_NAME)
-
-            results = model.predict([bag_of_words(msg, words)])
-            results_index = numpy.argmax(results)
-            tag = labels[results_index]
-
-            for tg in data["intents"]:
-                if tg['tag'] == tag:
-                    responses = tg['responses']
-
-        return jsonify({'data': random.choice(responses)})
+    return jsonify({'data': random.choice(responses)})
 
 
 if __name__ == '__main__':

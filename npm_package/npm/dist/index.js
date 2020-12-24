@@ -109,17 +109,14 @@ $(document).ready(function () {
 });
 
 var allpar = '<div class="bts"><button type="button" class="longbutton btn-block" id="admission" style="width:92%;">Admissions</button><button type="button" class="longbutton btn-block" id="placement" style="width:92%;">Placement Sessions</button><button type="button" class="regularbutton btn-block" id="scholarship" >Scholarships</button><button type="button" class="regularbutton btn-block" id="campus" >Campus Life</button><button type="button" class="regularbutton btn-block" id="hostel" >Hostels</button><button type="button" class="regularbutton btn-block" id="library" >Library</button><button type="button" class="regularbutton btn-block" id="reach" >How To Reach</button><button type="button" class="regularbutton btn-block" id="contact" >Contact Us</button><button type="button" class="regularbutton btn-block" id="chat" >Chat</button><button type="button" class="regularbutton btn-block" id="exit">Exit</button></div>';
-
 var allstud = '<div class="bts"><button type="button" class="regularbutton btn-block" id="timetable">TimeTable</button><button type="button" class="regularbutton btn-block" id="webkiosk" >Webkiosk</button><button type="button" class="regularbutton btn-block" id="notification" >Notifications</button><button type="button" class="regularbutton btn-block" id="extra" >Extra</button><button type="button" class="regularbutton btn-block" id="chat" >Chat</button><button type="button" class="regularbutton btn-block" id="exit">Exit</button></div>';
-
 var parcont = '<div class="bts"><button type="button" class="regularbutton" id="generalparent">General</button><button type="button" class="regularbutton" id="chat">Chat</button><a href="https://www.facebook.com/officialTIET/"><button type="button" class="longbutton" id="fb" style="width:92%;">Connect on Facebook</button></a></div>';
-
 var studcont = '<div class="bts"><button type="button" class="regularbutton" id="generalstudent" >General</button><button type="button" class="regularbutton" id="chat" >Chat</button><a href="https://www.facebook.com/officialTIET/"><button type="button" class="longbutton" id="fb" style="width:92%;">Connect on Facebook</button></a></div>';
 
 // fetch & set
 var fetchdata = function (endpoint, id, entity) {
   addtyping();
-  fetch("http://8c1461559d60.ngrok.io/" + endpoint, {
+  fetch("http://20.37.245.154:5000/" + endpoint, {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -243,7 +240,7 @@ $(document).ready(function () {
     }
   });
   $("#sendbutton").on("click", function (e) {
-    var text = $("#mymessage").val();    
+    var text = $("#mymessage").val();
     text = text.replace("<", " ");
     text = text.replace(">", " ");
     text = text.replace("alert", " ");

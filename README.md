@@ -1,16 +1,16 @@
 <h1 align="center">
   <br>
-  <a href="http://thapar.edu"><img src="https://raw.githubusercontent.com/meyash/thapar_bot/master/static/img/logo.png?token=AFBER77M5KPDYFZUATEXQJS7OSH6O" alt="logo" width="100"></a>
+  <a href="http://thapar.edu"><img src="https://raw.githubusercontent.com/meyash/thapar_bot/master/static/img/logo.png" alt="logo" width="100"></a>
   <br>
     Thapar BOT
   <br>
 </h1>
 
-<h4 align="center">A Deep Learning based chatbot for Thapar Institute, Patiala.</h4>
+<h4 align="center">A Deep Learning Intent based chatbot for Thapar Institute of Engineering & Technology, Patiala.</h4>
 <h4 align="center">Deployed on <a href="http://thapar.edu">thapar.edu</a></h4>
 <br />
 
-![screens](https://raw.githubusercontent.com/meyash/thapar_bot/master/static/img/screens.png?token=AFBER72TRSUQKZN3ILFYXCK7OSJEC)
+![screens](https://raw.githubusercontent.com/meyash/thapar_bot/master/static/img/screens.png)
 
 <br />
 
@@ -24,7 +24,6 @@
 - sqlAlchemy
 - NLTK
 - numpy
-- profanity_check
 - flask_cors
 
 ## Endpoints
