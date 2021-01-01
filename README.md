@@ -24,7 +24,6 @@
 - flask_ngrok
 - tflearn
 - pickle
-- sqlAlchemy
 - NLTK
 - numpy
 - flask_cors
