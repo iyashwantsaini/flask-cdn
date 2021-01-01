@@ -3,11 +3,10 @@ gunicorn==19.9.0
 numpy==1.16.5
 Werkzeug==0.16.0
 pandas==0.25.1
+tensorflow==1.15
+tflearn
+nltk
 datetime
 flask_sqlalchemy
 flask_login
 flask_cors
-tensorflow==1.15
-tflearn
-nltk
-flask_ngrok

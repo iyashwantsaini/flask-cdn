@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a href="http://thapar.edu"><img src="https://raw.githubusercontent.com/meyash/thapar_bot/master/static/img/logo.png" alt="logo" width="100"></a>
+  <a href="http://thapar.edu"><img src="./static-img/logo.png" alt="logo" width="100"></a>
   <br>
     Thapar BOT
   <br>
@@ -10,14 +10,17 @@
 <h4 align="center">Deployed on <a href="http://thapar.edu">thapar.edu</a></h4>
 <br />
 
-![screens](https://raw.githubusercontent.com/meyash/thapar_bot/master/static/img/screens.png)
+![screens](./static-img/screen.png)
 
 <br />
 
 ## Technologies and Libraries
 
-- tensorflow
+- python
+- javascript
+- jquery
 - flask
+- tensorflow
 - flask_ngrok
 - tflearn
 - pickle
@@ -26,13 +29,9 @@
 - numpy
 - flask_cors
 
-## Endpoints
+## Endpoint
 
-- /signin
-- /email
 - /chat
-- /email_database
-- /chat_database
 
 ## License
 

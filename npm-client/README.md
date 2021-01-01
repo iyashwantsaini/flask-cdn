@@ -16,23 +16,23 @@ npm init
 
 ```
 {
-  "name": "depbot",
+  "name": "thaparbot",
   "version": "2.0.2",
-  "description": "",
+  "description": "thaparbot",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/meyash/dep_bot.git"
+    "url": "git+https://github.com/botcrafts/thapar_npm.git"
   },
   "author": "Yashwant",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/meyash/dep_bot/issues"
+    "url": "https://github.com/botcrafts/thapar_npm/issues"
   },
-  "homepage": "https://github.com/meyash/dep_bot#readme"
+  "homepage": "https://github.com/botcrafts/thapar_npm#readme"
 }
 ```
 
@@ -52,12 +52,12 @@ Now we are all set, let’s connect to NPM and publish our package.
 
 ```
 npm login
-
-Username: ------
-Password: ------
-Email: (this IS public) -----
-Logged in as ------ on https://registry.npmjs.org/.
+Username: _uname
+Password: _upass
+Email: (this IS public) _umail
+Logged in as meyash on https://registry.npmjs.org/.
 ```
+
 ```
 npm publish
 ```
@@ -67,9 +67,8 @@ npm publish
 Lets try to access it using unpkg. Open your browser and enter the url in the below format.<br>
 https://unpkg.com/pacakage/<br>
 For using specific version https://unpkg.com/package@version/:file<br>
-
 Example :
 ```
-<script src="https://unpkg.com/bot@latest/dist/index.js"></script>
-<link href="https://unpkg.com/bot@latest/dist/index.css" rel="stylesheet" type="text/css">
+<script src="https://unpkg.com/bot@1.0.0/dist/index.js"></script>
+<link href="https://unpkg.com/bot@1.0.0/dist/index.css" rel="stylesheet" type="text/css">
 ```

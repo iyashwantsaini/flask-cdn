@@ -28,8 +28,6 @@ var htmltext =
   "</div>" +
   "</button>" +
   "</form>" +
-  '<hr style="width:100%;color:grey;background-color: grey;border: 1px solid white;opacity: 0.5;">' +
-  '<p class="love" style="line-height: 8px;">Created with <span style="color:red;">❤</span>&nbsp;&nbsp;by <a href="https://analyticware.in/" style="text-decoration:none;color:blue;">AnalyticWare</a></p>' +
   "</div>" +
   "</div>" +
   "</div>" +
@@ -37,18 +35,20 @@ var htmltext =
   '<div class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-animation="true" data-delay="8000">' +
   '<div class="toast-header">' +
   '<strong style="font-size: 20px;">Hey there 👋</strong>' +
-  '</div>' +
-  '</div>' +
+  "</div>" +
+  "</div>" +
   '<div class="chat_on">' +
   '<img class="iconic" src="https://unpkg.com/thaparbot@latest/dist/img/bot.png">' +
-  '</div>' +
+  "</div>" +
   "</div>" +
   "</div>" +
   "</div>";
+
+// add to inner html
 document.body.innerHTML += htmltext;
 
 setTimeout(function () {
-  $('.toast').fadeOut('fast');
+  $(".toast").fadeOut("fast");
 }, 5000);
 
 var fb = "https://www.facebook.com/officialTIET/";
@@ -57,7 +57,8 @@ var sound = new Howl({
   src: [pop],
   volume: 0.5,
 });
-
+var endpoint = "chat";
+var executedgreetings = false;
 
 function scrollToBottomOfResults() {
   var terminalResultsDiv = document.getElementById("chats");
@@ -66,9 +67,7 @@ function scrollToBottomOfResults() {
   terminalContDiv.scrollTop = terminalContDiv.scrollHeight;
 }
 
-var endpoint = "chat";
-var executedgreetings = false;
-
+// add while requesting / remove when added to modal
 var addtyping = function () {
   var typing =
     '<div id="typingind" class="typingIndicatorContainer">' +
@@ -108,43 +107,46 @@ $(document).ready(function () {
   });
 });
 
-var allpar = '<div class="bts"><button type="button" class="longbutton btn-block" id="admission" style="width:92%;">Admissions</button><button type="button" class="longbutton btn-block" id="placement" style="width:92%;">Placement Sessions</button><button type="button" class="regularbutton btn-block" id="scholarship" >Scholarships</button><button type="button" class="regularbutton btn-block" id="campus" >Campus Life</button><button type="button" class="regularbutton btn-block" id="hostel" >Hostels</button><button type="button" class="regularbutton btn-block" id="library" >Library</button><button type="button" class="regularbutton btn-block" id="reach" >How To Reach</button><button type="button" class="regularbutton btn-block" id="contact" >Contact Us</button><button type="button" class="regularbutton btn-block" id="chat" >Chat</button><button type="button" class="regularbutton btn-block" id="exit">Exit</button></div>';
-var allstud = '<div class="bts"><button type="button" class="regularbutton btn-block" id="timetable">TimeTable</button><button type="button" class="regularbutton btn-block" id="webkiosk" >Webkiosk</button><button type="button" class="regularbutton btn-block" id="notification" >Notifications</button><button type="button" class="regularbutton btn-block" id="extra" >Extra</button><button type="button" class="regularbutton btn-block" id="chat" >Chat</button><button type="button" class="regularbutton btn-block" id="exit">Exit</button></div>';
-var parcont = '<div class="bts"><button type="button" class="regularbutton" id="generalparent">General</button><button type="button" class="regularbutton" id="chat">Chat</button><a href="https://www.facebook.com/officialTIET/"><button type="button" class="longbutton" id="fb" style="width:92%;">Connect on Facebook</button></a></div>';
-var studcont = '<div class="bts"><button type="button" class="regularbutton" id="generalstudent" >General</button><button type="button" class="regularbutton" id="chat" >Chat</button><a href="https://www.facebook.com/officialTIET/"><button type="button" class="longbutton" id="fb" style="width:92%;">Connect on Facebook</button></a></div>';
+var allpar =
+  '<div class="bts"><button type="button" class="longbutton btn-block" id="admission" style="width:92%;">Admissions</button><button type="button" class="longbutton btn-block" id="placement" style="width:92%;">Placement Sessions</button><button type="button" class="regularbutton btn-block" id="scholarship" >Scholarships</button><button type="button" class="regularbutton btn-block" id="campus" >Campus Life</button><button type="button" class="regularbutton btn-block" id="hostel" >Hostels</button><button type="button" class="regularbutton btn-block" id="library" >Library</button><button type="button" class="regularbutton btn-block" id="reach" >How To Reach</button><button type="button" class="regularbutton btn-block" id="contact" >Contact Us</button><button type="button" class="regularbutton btn-block" id="chat" >Chat</button><button type="button" class="regularbutton btn-block" id="exit">Exit</button></div>';
+var allstud =
+  '<div class="bts"><button type="button" class="regularbutton btn-block" id="timetable">TimeTable</button><button type="button" class="regularbutton btn-block" id="webkiosk" >Webkiosk</button><button type="button" class="regularbutton btn-block" id="notification" >Notifications</button><button type="button" class="regularbutton btn-block" id="extra" >Extra</button><button type="button" class="regularbutton btn-block" id="chat" >Chat</button><button type="button" class="regularbutton btn-block" id="exit">Exit</button></div>';
+var parcont =
+  '<div class="bts"><button type="button" class="regularbutton" id="generalparent">General</button><button type="button" class="regularbutton" id="chat">Chat</button><a href="https://www.facebook.com/officialTIET/"><button type="button" class="longbutton" id="fb" style="width:92%;">Connect on Facebook</button></a></div>';
+var studcont =
+  '<div class="bts"><button type="button" class="regularbutton" id="generalstudent" >General</button><button type="button" class="regularbutton" id="chat" >Chat</button><a href="https://www.facebook.com/officialTIET/"><button type="button" class="longbutton" id="fb" style="width:92%;">Connect on Facebook</button></a></div>';
 
 // fetch & set
 var fetchdata = function (endpoint, id, entity) {
   addtyping();
-  fetch("http://20.37.245.154:5000/" + endpoint, {
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": "true",
-        "Access-Control-Allow-Methods": "*",
-      },
-      method: "POST",
-      body: JSON.stringify({
-        text: id,
-      }),
-    })
+  fetch("http://4be506ad776d.ngrok.io/" + endpoint, {
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": "true",
+      "Access-Control-Allow-Methods": "*",
+    },
+    method: "POST",
+    body: JSON.stringify({
+      text: id,
+    }),
+  })
     .then(function (response) {
       return response.json();
     })
     .then(function (myJson) {
-      if (entity == 'student') {
-        setBotResponse(myJson["data"], 'student');
-      } else if (entity == 'parent') {
-        setBotResponse(myJson["data"], 'parent');
-      } else if (entity == 'else') {
+      if (entity == "student") {
+        setBotResponse(myJson["data"], "student");
+      } else if (entity == "parent") {
+        setBotResponse(myJson["data"], "parent");
+      } else if (entity == "else") {
         setBotResponseWithButtons(parcont);
       } else {
         setBotResponse(myJson["data"]);
       }
     });
 };
-
 
 // buttonsresponse
 $(document.body).on("click", "button", function () {
@@ -154,8 +156,12 @@ $(document.body).on("click", "button", function () {
   }
   if (this.id == "chat") {
     addtyping();
-    setBotResponse('Hello 👋, I am your assistant. I am here to help you in case of any queries!');
-    setBotResponse('You can ask me about Placements  , Admissions , Fees , Scholarship , Labs , Marking Scheme , College Reopening etc. 😄');
+    setBotResponse(
+      "Hello 👋, I am your assistant. I am here to help you in case of any queries!"
+    );
+    setBotResponse(
+      "You can ask me about Placements  , Admissions , Fees , Scholarship , Labs , Marking Scheme , College Reopening etc. 😄"
+    );
   }
   if (this.id == "generalparent") {
     addtyping();
@@ -172,7 +178,7 @@ $(document.body).on("click", "button", function () {
     this.id == "reach" ||
     this.id == "programme"
   ) {
-    fetchdata('chat', this.id, 'parent');
+    fetchdata("chat", this.id, "parent");
   }
   if (
     this.id == "timetable" ||
@@ -181,7 +187,7 @@ $(document.body).on("click", "button", function () {
     this.id == "notification"
   ) {
     scrollToBottomOfResults();
-    fetchdata('chat', this.id, 'student');
+    fetchdata("chat", this.id, "student");
   }
   if (this.id == "yespar") {
     addtyping();
@@ -193,18 +199,17 @@ $(document.body).on("click", "button", function () {
   }
   if (this.id == "no" || this.id == "exit") {
     addtyping();
-    setBotResponse('Thank You for using our service!');
+    setBotResponse("Thank You for using our service!");
   }
   if (this.id == "parents") {
     addtyping();
     setTimeout(function () {
-      setBotResponse('Welcome Mam/Sir. <br> Thapar Institute of Engineering and Technology Welcomes you <br> Can we get your Email Id please?');
+      setBotResponseWithButtons(allpar);
     }, 2000);
   }
   if (this.id == "students") {
     addtyping();
     setTimeout(function () {
-      // setBotResponse('For Students');
       setBotResponseWithButtons(allstud);
     }, 2000);
   }
@@ -214,6 +219,7 @@ $(document).ready(function () {
   $("#mymessage").on("keyup keypress", function (e) {
     var keyCode = e.keyCode || e.which;
     var text = $("#mymessage").val();
+    // sanitization
     text = text.replace("<", " ");
     text = text.replace(">", " ");
     text = text.replace("alert", " ");
@@ -224,18 +230,10 @@ $(document).ready(function () {
         return false;
       } else {
         e.preventDefault();
-        var re = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
-        if (re.test(text)) {
-          setUserResponse(text);
-          $("#mymessage").blur();
-          fetchdata('email', text, 'else');
-          return false;
-        } else {
-          setUserResponse(text);
-          $("#mymessage").blur();
-          fetchdata('chat', text, 'bot');
-          return false;
-        }
+        setUserResponse(text);
+        $("#mymessage").blur();
+        fetchdata("chat", text, "bot");
+        return false;
       }
     }
   });
@@ -250,18 +248,10 @@ $(document).ready(function () {
       return false;
     } else {
       e.preventDefault();
-      var re = /(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/;
-      if (re.test(text)) {
-        setUserResponse(text);
-        $("#mymessage").blur();
-        fetchdata('email', text, 'else');
-        return false;
-      } else {
-        setUserResponse(text);
-        $("#mymessage").blur();
-        fetchdata('chat', text, 'bot');
-        return false;
-      }
+      setUserResponse(text);
+      $("#mymessage").blur();
+      fetchdata("chat", text, "bot");
+      return false;
     }
   });
 });
@@ -271,16 +261,21 @@ var greetings = (function () {
     if (!executedgreetings) {
       executedgreetings = true;
       setTimeout(function () {
-        setBotResponse('Hello , Welcome to Thapar Institute of Engineering and Technology Chat Support.<br> We are here to help you for all your queries 😇');
+        setBotResponse(
+          "Hello , Welcome to Thapar Institute of Engineering and Technology Chat Support.<br> We are here to help you for all your queries 😇"
+        );
       }, 500);
       setTimeout(function () {
-        setBotResponseWithoutAvatar('<div class="bts"><button type="button" class="longbutton" id="parents">Parents Section</button><button type="button" class="longbutton" id="students">Students Section</button></div>');
+        setBotResponseWithoutAvatar(
+          '<div class="bts"><button type="button" class="longbutton" id="parents">Parents Section</button><button type="button" class="longbutton" id="students">Students Section</button></div>'
+        );
       }, 500);
       scrollToBottomOfResults();
     }
   };
 })();
 
+// response/reply with avatar
 function setUserResponse(val) {
   var UserResponse =
     '<img class="userAvatar" src=' +
@@ -293,6 +288,7 @@ function setUserResponse(val) {
   scrollToBottomOfResults();
 }
 
+// response/reply with avatar
 function setBotResponse(val, extra) {
   removetyping();
   var BotResponse =
@@ -300,19 +296,23 @@ function setBotResponse(val, extra) {
     val +
     '</p><div class="clearfix"></div>';
   $(BotResponse).appendTo(".chats").hide().fadeIn(1000);
-  if (extra == 'parent') {
-    setBotResponse('Do you want to Continue?');
-    setBotResponseWithoutAvatar('<div class="bts"><button type="button" class="regularbutton" id="yespar">Yes</button><button type="button" class="regularbutton" id="no">No</button></div>');
-  } else if (extra == 'student') {
-    setBotResponse('Do you want to Continue?');
-    setBotResponseWithoutAvatar('<div class="bts"><button type="button" class="regularbutton" id="yesstu">Yes</button><button type="button" class="regularbutton" id="no">No</button></div>');
+  if (extra == "parent") {
+    setBotResponse("Do you want to Continue?");
+    setBotResponseWithoutAvatar(
+      '<div class="bts"><button type="button" class="regularbutton" id="yespar">Yes</button><button type="button" class="regularbutton" id="no">No</button></div>'
+    );
+  } else if (extra == "student") {
+    setBotResponse("Do you want to Continue?");
+    setBotResponseWithoutAvatar(
+      '<div class="bts"><button type="button" class="regularbutton" id="yesstu">Yes</button><button type="button" class="regularbutton" id="no">No</button></div>'
+    );
   }
   $("#mymessage").val("");
   sound.play();
   scrollToBottomOfResults();
 }
 
-
+// continuation message
 function setBotResponseWithoutAvatar(val) {
   removetyping();
   var botResponse = val + '<div id="clearfixwithoutavatar"></div>';
@@ -322,9 +322,13 @@ function setBotResponseWithoutAvatar(val) {
   scrollToBottomOfResults();
 }
 
+// show various flow options
 function setBotResponseWithButtons(val) {
   removetyping();
-  var botResponse = '<img class="botAvatar" src="https://unpkg.com/thaparbot@latest/dist/img/bot.png">' + val + '<div id="clearfixwithoutavatar"></div>';
+  var botResponse =
+    '<img class="botAvatar" src="https://unpkg.com/thaparbot@latest/dist/img/bot.png">' +
+    val +
+    '<div id="clearfixwithoutavatar"></div>';
   $(botResponse).appendTo(".chats").hide().fadeIn(1000);
   $("#mymessage").val("");
   sound.play();

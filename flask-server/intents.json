@@ -1,0 +1,333 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hi",
+        "How are you",
+        "Is anyone there?",
+        "Hello",
+        "Whats up",
+        "Hey"
+      ],
+      "responses": [
+        "Hello! <br>I hope you are good :) <br>How may I help you today?<br>I can answer queries related to Jobs, Internships, Admission, Scholarships, Fees, Library, College Opening, Hostels, Exams, Faculty, LMS Education Platform etc. "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "cya",
+        "See you later",
+        "Goodbye",
+        "I am Leaving",
+        "Have a Good day",
+        "bye"
+      ],
+      "responses": [
+        " Bye :( <br> I hope your query is solved. Would love to see you again. "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "thankyou",
+      "patterns": [
+        "thankyou",
+        "thanx",
+        "really helpful, thanks!",
+        "great! thanks"
+      ],
+      "responses": [
+        "Welcome!",
+        "My Pleasure",
+        "No problem",
+        "Glad that I was useful",
+        "Pleasure is all mine!"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "introduction",
+      "patterns": ["who are you ? ", "why are you there", "you are useless"],
+      "responses": [
+        "I am an AI assistant that can help with your queries related to Jobs, Internships, Admission, Scholarships, Fees, LMS Education Platform, Library, College Opening, Hostels, Exams, Faculties "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "owner",
+      "patterns": ["who created you ? ", "who made you", "why is your owner"],
+      "responses": [
+        "I am an AI assistant created by AnalyticWare. I love to resolve your queries :) "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "collegeOpen",
+      "patterns": [
+        "when will college reopen?",
+        "will the college open this year?",
+        "when will college restart?",
+        "when will offline classes start ?",
+        "offline classes",
+        "physical reopening",
+        "reopening",
+        "college kab khulenge"
+      ],
+      "responses": [
+        "Online classes for 1st year will commence from 21st of September 2020. Online Classes for 2nd year onwards has been started from 20th of July on Thapar LMS education platform <br>For more details you can check out at : <a href='https://murphy-lms.thapar.edu' style='color: #FFFFFF'> <u> https://murphy-lms.thapar.edu </u> </a>. However there is no infomation regarding offline classes as of now. Students will be informed about offline classes and college reopening. "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "jobs",
+      "patterns": [
+        "how were the placements this year?",
+        "Did students get jobs?",
+        "can u tell me about jobs ?",
+        "can u tell me about placements ?",
+        "highest package"
+      ],
+      "responses": [
+        "Previous Placement Sessions of Thapar University has been outstanding <br> The higest package offered was 43 lakhs <br> Some of our past recuirters include : <br>Amazon, Deloitte, IBM, Microsoft, Maruti Suzuki ,JP Morgan ,Samsung , Zomato , Wipro, Reliance <br> and the list is long......<br> For more details you can check out at : <a href='http://www.thapar.edu/placements/pages/industrial-training' style='color: #FFFFFF'> <u> http://www.thapar.edu/placements/pages/industrial-training </u> </a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "internships",
+      "patterns": [
+        "how were the inetrnships this year?",
+        "Did students get internships?",
+        "tell me about internships ?",
+        "can u tell me about internships ?",
+        "internships",
+        "intersnhips of computer science",
+        "Internships of COE"
+      ],
+      "responses": [
+        "Previous Internship  Sessions at Thapar University have  been amazing. <br> Some of the companies that visited campus for internships include : <br>Deloitte, Microsoft, JP Morgan, Samsung, DeShaw etc <br> and the list is long...<br> For more details you can check out at : <a href='http://www.thapar.edu/placements' style='color: #FFFFFF'> <u> http://www.thapar.edu/placements </u> </a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "admissionCriteria",
+      "patterns": [
+        "how will the students be admitted this year?",
+        "admission process for this year?",
+        "admissions this year?",
+        "can u tell me about admissions"
+      ],
+      "responses": [
+        "Students will be enrolled on the bases of 2 modes<br>Mode 1 - JEE Main Result<br>Mode 2 -  12th BOARD result<br>For further details check this site: <a href='http://thapar.edu/admissions' style='color: #FFFFFF'><u> http://thapar.edu/admissions </u></a> <br> You can always visit our FAQ section for more information regarding admissions <br><a href='https://admissions.thapar.edu/faqs.php' style='color: #FFFFFF'><u>https://admissions.thapar.edu/faqs.php</u></a> "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "fees",
+      "patterns": [
+        "will the fees be reduced",
+        "will there be fee reduction amid COVID 19",
+        "fees?",
+        "tell me about fees",
+        "can u tell me about fees?"
+      ],
+      "responses": [
+        "For details regarding admission and fees <br>Contact:<br>+91-8882134828<br>email: admissions@thapar.edu<br><br> However, you can apply for scholarships.To know more about the eligibility criteria, terms and conditions<br>Check this site for eligibility criteria and much more <a href='http://thapar.edu/admissions/pages/scholarships' style='color: #FFFFFF'> <u> http://thapar.edu/admissions/pages/scholarships </u> </a> "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "scholarship",
+      "patterns": [
+        "what are the scholarships",
+        "are there any scholarships?",
+        "scholarships",
+        "tell me about scholarships",
+        "can u tell me about schlolarships"
+      ],
+      "responses": [
+        "Thapar Institute of Engineering & Technology offers scholarships to the deserving.<br>You can apply for scholarships.To know more about the eligibility criteria, terms and conditions<br>Check the site for eligibility criteria and much more <a href='http://thapar.edu/admissions/pages/scholarships' style='color: #FFFFFF'> <u> http://thapar.edu/admissions/pages/scholarships </u> </a> "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "labs",
+      "patterns": [
+        "how will the labs be conducted?",
+        "how will practical knowledge of tha labs be imparted",
+        "tell how labs will be conducted",
+        "can u tell me about labs ?",
+        "labs"
+      ],
+      "responses": ["Labs are conducted online through Thapar LMS Platform "],
+      "context_set": ""
+    },
+    {
+      "tag": "marks",
+      "patterns": [
+        "how will marks be given in the new sem",
+        "how will the exams be conducted in this sem?",
+        "marks"
+      ],
+      "responses": [
+        "Regular online tests, quiz and assignments are conducted to measure the progress of students. Tests and Classes are conducted via Thapar Online Learning Management System while the college is closed due to the pandemic."
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "unknown",
+      "patterns": [" "],
+      "responses": [
+        "Oops! It seems I don't have an answer for this query. <br> But No Worries! My Artificial Intelligence systems are continuously improving and learning from you .<br>Currently you can ask us about Jobs, Internships, Admission, Scholarships, Fees, LMS Education Platform, Library, College Opening, Hostels, Exams, Faculties etc. "
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "contact",
+      "patterns": [
+        "contact",
+        "number",
+        "call",
+        "who to get in touch with",
+        "connection",
+        "phone"
+      ],
+      "responses": [
+        "ADMISSION QUERIES<br>Phone:+91-8288008120,+91-8288008121 ,+91-8146052821 ,+91-8882134828<br>Email:admissions@thapar.edu<br><br>APPLICATIONS QUERIES<br>Phone: +91-8882134828<br>Email:technical_support@thapar.edu<br><br>FEE ENQUIRY<br>Mess Fee helpline:Hostels (9888689633)<br>Contact time:9:00 AM to 5:00 PM, (Monday to Friday)<br>Email:info@thapar.edu<br><br>OFFICE<br>Address:P.O. Box 32, Patiala, Pin -147004<br>Phone:+91-175-2393021<br>Fax No.:+91-175-2364498<br>Telegram: Thaparinst<br>Email:registrar@thapar.edu <br> For more details:<a href='http://thapar.edu/pages/contactus' style='color: #FFFFFF'> <u> http://thapar.edu/pages/contactus </u> </a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "jee main ",
+      "patterns": [
+        "jee main counselling",
+        "counselling",
+        "jee main",
+        "counselling start",
+        "connection",
+        "phone"
+      ],
+      "responses": [
+        "First three rounds of counselling(5-Aug, 14-Aug and 24-Aug, 2020)will be on the basis  of  10+2  PCM  score. As  and  when  JEE(Main)-2020  result  is  declared, admissions  for  vacant  seats  in  subsequent  rounds  of  counselling  will  be  done based on JEE(Main)-2020 rank only. In case JEE(Main)-2020 result is not available by  the  third  round  of  counselling  then  admissions  will  be  done  on  the  basis  of criteria followed in the first three rounds.You can always visit our FAQ section for more information regarding admissions <br><a href='https://admissions.thapar.edu/faqs.php' style='color: #FFFFFF'><u>https://admissions.thapar.edu/faqs.php</u></a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "refund ",
+      "patterns": [
+        "can I get my fees back",
+        "refund my fees ",
+        "what is fee refund procedure",
+        "fees refund",
+        "refund",
+        "How can I get my fees back",
+        "fee refund procedure"
+      ],
+      "responses": [
+        "The application form fee is non-refundable; however, the course fee is refundable as per the norms of the institute.You can always visit our FAQ section for more information regarding admissions <br><a href='https://admissions.thapar.edu/faqs.php' style='color: #FFFFFF'><u>https://admissions.thapar.edu/faqs.php</u></a>"
+      ],
+      "context_set": ""
+    },
+    {
+      "tag": "lms",
+      "patterns": [
+        "lms",
+        "online classes",
+        "study during covid",
+        "how are classes conducted during pandemic",
+        "Education portal",
+        "LMS",
+        "study material",
+        "how to study"
+      ],
+      "responses": [
+        "Thapar Online Learning Management System,<br>is the online platform where Thapar University is conducting online classes. All Learning material is available here along with lecture links.<br>Assignments are submitted and evaluated here, online tests and quiz are also taken through this platform.<br>To check it out, visit:<br><a href='http://thapar.edu/academics/centerspages/thapar-lms65' style='color: #FFFFFF'><u>http://thapar.edu/academics/centerspages/thapar-lms65</u></a>"
+      ],
+      "context_set": ""
+    },
+
+    {
+      "tag": "hostel",
+      "patterns": [
+        "hostel",
+        "where to live",
+        "accomodation",
+        "hostel life",
+        "accomodation"
+      ],
+      "responses": [
+        " Thapar University has a great hostel facility for its students .<br> We have 8 Boy's Hostels and 5 Girl's hostels. <br> You can check them out at :<br> <a href='http://thapar.edu/students/pages/hostels' style='color: #FFFFFF'> <u> http://thapar.edu/students/pages/hostels </u> </a> "
+      ],
+      "context_set": ""
+    },
+
+    {
+      "tag": "library",
+      "patterns": [
+        "library",
+        "study material",
+        "research articles",
+        "previous year papers",
+        "online study material",
+        "books"
+      ],
+      "responses": [
+        "Nava Nalanda Central Library is a 3 floor library packed with books on every section.<br>It has separate GD rooms for discussion and meetings.<br>Its website is a source of plethora of books, research papers, previous year papers.<br> Check about the latest book updates and other things here : <br><a href='http://cl.thapar.edu/?_ga=2.209259478.550812806.1594115898-1394603163.1594115898' style='color: #FFFFFF'> <u> http://cl.thapar.edu/?_ga=2.209259478.550812806.1594115898-1394603163.1594115898 </u> </a>"
+      ],
+      "context_set": ""
+    },
+
+    {
+      "tag": "research",
+      "patterns": ["research", "phd", "doctorate", "RnD"],
+      "responses": [
+        "Research is to see what everybody else has seen, and to think what nobody else has thought.<br>At Thapar University, Research work is highly supported and promoted amongst faculties and students alike.<br>To check out achievements in this field,visit:<br><a href='http://thapar.edu/researches' style='color: #FFFFFF' ><u>http://thapar.edu/researches </u></a>"
+      ],
+      "context_set": ""
+    },
+
+    {
+      "tag": "Faculty",
+      "patterns": ["staff", "teachers", "faculty", "proffesors"],
+      "responses": [
+        "A teacher takes a Hand, opens a Mind and touches a Heart. Faculty of Thapar university is hardworking, dedicated, passionate about their field and impart their knowledge gracefully.<br>To know them better,go here:<br><a href='http://thapar.edu/faculties' style='color: #FFFFFF'><u>http://thapar.edu/faculties</u></a>"
+      ],
+      "context_set": ""
+    },
+
+    {
+      "tag": "calendar",
+      "patterns": ["academic calendar", "calendar"],
+      "responses": [
+        "You can find the Academic calendar in the footer of this website. I hope we keep you updated :)"
+      ],
+      "context_set": ""
+    },
+
+    {
+      "tag": "mst",
+      "patterns": ["mst", "est", "examination", "exams"],
+      "responses": [
+        "For any Examination related updates check this site: <a href='http://thapar.edu/misces/examinationupdates' style='color: #FFFFFF'> http://thapar.edu/misces/examinationupdates </a>"
+      ],
+      "context_set": ""
+    },
+
+    {
+      "tag": "webkiosk",
+      "patterns": [
+        "webkiosk",
+        "credentials of webkiosk",
+        "Id and password for webkiosk",
+        "Did not get id and password for webkiosk",
+        "login into webkiosk",
+        "login problem webkiosk"
+      ],
+      "responses": [
+        "Login  ID  and  password  has  been  sent  to  the  candidates  who  have  been allocated a branch in first round of counselling. Only such candidates will be able to login to check the branch allocation status. You can login into your webkiosk here: <br> <a href='http://thapar.edu/students/pages/webkiosk' style='color: #FFFFFF'> http://thapar.edu/students/pages/webkiosk </a> <br> However if you haven't got your credentials or facing any problems please contact us at : + (91)- 175-239 3021 <br> or write to us at : info@thapar.edu "
+      ],
+      "context_set": ""
+    }
+  ]
+}

@@ -17,7 +17,7 @@
 
 .iconic {
   width: 35px;
-  height: 50px;
+  height: 35px;
   padding: -23px;
   padding-bottom: 23px;
 }
@@ -25,8 +25,8 @@
 .chat_on {
   position: fixed;
   z-index: 1000;
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   right: 20px;
   bottom: 30px;
   border-radius: 50%;
@@ -37,8 +37,8 @@
   font-size: 30px;
   background-color: rgba(255, 255, 255, 1);
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, .1);
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
@@ -47,13 +47,13 @@
   color: #fff;
   font-size: 25px;
   text-align: center;
-  background-color: rgba(255, 255, 255, .85);
+  background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, .1);
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
 #Smallchat .Layout {
@@ -417,7 +417,7 @@
   margin-bottom: 10px;
   animation: animateElement linear 0.4s;
   word-wrap: break-word;
-  background: #C0C0C0;
+  background: #c0c0c0;
   color: #fff;
   border-radius: 1em;
   font-size: 14px;
@@ -481,7 +481,7 @@
 .form button:focus {
   color: #fff;
   background-color: #007bff;
-  border-color: #007bff
+  border-color: #007bff;
 }
 
 .regularbutton:hover,
@@ -489,7 +489,7 @@
 .form button:focus {
   color: #fff;
   background-color: #007bff;
-  border-color: #007bff
+  border-color: #007bff;
 }
 
 .love {
@@ -547,7 +547,6 @@
 }
 
 @keyframes bounce {
-
   0%,
   60%,
   100% {
@@ -558,7 +557,6 @@
     transform: translateY(-4px);
   }
 }
-
 
 /* dropdown */
 
@@ -596,7 +594,6 @@
   border-style: solid;
   border-color: white transparent;
   z-index: 1000;
-
 }
 
 .wrapper-dropdown-3 .dropdown {
@@ -628,7 +625,6 @@
   padding: 0;
   margin: 0;
   z-index: 1000;
-
 }
 
 .wrapper-dropdown-3 .dropdown:after {
@@ -647,7 +643,6 @@
   padding: 0;
   margin: 0;
   z-index: 1000;
-
 }
 
 .wrapper-dropdown-3 .dropdown:before {
@@ -666,7 +661,6 @@
   padding: 0;
   margin: 0;
   z-index: 1000;
-
 }
 
 .wrapper-dropdown-3 .dropdown li a {
@@ -682,7 +676,6 @@
   -o-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
   z-index: 1000;
-
 }
 
 .wrapper-dropdown-3 .dropdown li:first-of-type a {
@@ -734,16 +727,16 @@
 .toast {
   max-width: 350px;
   overflow: hidden;
-  font-size: .875rem;
+  font-size: 0.875rem;
   z-index: 1000;
   background-color: rgba(255, 255, 255, 1);
   background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, .1);
-  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, .1);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.1);
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   opacity: 1;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
 .toast-header {
@@ -751,11 +744,11 @@
   display: flex;
   -ms-flex-align: center;
   align-items: center;
-  padding: .25rem .75rem;
+  padding: 0.25rem 0.75rem;
   color: #6c757d;
-  background-color: rgba(255, 255, 255, .85);
+  background-color: rgba(255, 255, 255, 0.85);
   background-clip: padding-box;
-  border-bottom: 1px solid rgba(0, 0, 0, .05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 #al a:link {
